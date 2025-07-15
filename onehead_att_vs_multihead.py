@@ -1,0 +1,1 @@
+# can you believe kinda diff to explain in math and details details the how both work
