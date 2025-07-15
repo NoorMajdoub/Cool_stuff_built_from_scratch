@@ -1,0 +1,1 @@
+#how the math of duff models
