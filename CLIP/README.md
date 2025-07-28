@@ -1,14 +1,32 @@
-my own dummy expllanation of how in deep clip works , so the core idea is getting the embeddings from two seperate models and connectiing them in a joined space , what i will try to do is impelment how this joining work
-concepts to go over
-InfoNCE
 
-resources 
-https://medium.com/@paluchasz/understanding-openais-clip-model-6b52bade3fa3
+My notes and explanation of how the CLIP arch is , i wont focus on the embeddings stuff i am interested in how the constructive learning happen 
 
+--
+What is CLIP?
+--
+CLIP (Contrastive Language–Image Pretraining) is a model trained to associate images and texts based on their semantic meaning. Rather than generating text or images, CLIP's job is matching: given a text and an image, it tells how well they correspond.
 
-during training , whqt is being updates are two weights matrixes ..wi of dims(n_batches,d)
-and wt (n_batches,d)  with d ebing the dommun dimension we want to combine the text and image in , 
+It’s a zero-shot classifier — this means it can classify images into arbitrary textual categories without having seen labeled examples of those categories during training.
 
+CLIP can be used for:
 
-//the pytorch implementation of infonce:
+Image classification
 
+Semantic similarity
+
+Image captioning evaluation
+
+Text-to-image search and vice versa
+
+--
+How does CLIP work?
+--
+CLIP consists of:
+
+An image encoder (usually ViT or ResNet)
+
+A text encoder (usually a Transformer like BERT)
+
+Two projection layers (W_i and W_t) that map image and text embeddings into a shared space 
+
+The model is trained so that matching image-text pairs are close together in this space, and mismatched ones are far apart.
