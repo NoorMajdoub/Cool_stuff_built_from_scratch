@@ -11,6 +11,4 @@ and wt (n_batches,d)  with d ebing the dommun dimension we want to combine the t
 
 
 //the pytorch implementation of infonce:
- logits = (I_e @ T_e.transpose(-2,-1)) * torch.exp(self.temperature)
 
-   
