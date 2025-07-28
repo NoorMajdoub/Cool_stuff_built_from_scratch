@@ -16,9 +16,3 @@ and wt (n_batches,d)  with d ebing the dommun dimension we want to combine the t
         # symmetric loss function
         labels = torch.arange(logits.shape[0]).to(self.device)
 
-        loss_i = nn.functional.cross_entropy(logits.transpose(-2,-1), labels)
-        loss_t = nn.functional.cross_entropy(logits, labels)
-
-        loss = (loss_i + loss_t) / 2
-
-        return loss
