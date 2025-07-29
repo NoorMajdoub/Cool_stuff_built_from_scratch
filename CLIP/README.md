@@ -132,3 +132,5 @@ This competitive nature improves robustness and generalization.
 
 This matrix is fed to a cross-entropy loss, treating each row and column as a classification problem where only the diagonal should have high sim.
 
+
+
