@@ -62,3 +62,22 @@ loss_i2t = F.cross_entropy(similarity / temperature, labels)
 loss_t2i = F.cross_entropy(similarity.T / temperature, labels)
 loss = (loss_i2t + loss_t2i) / 2
 
+--
+ Why normalize ?
+ --
+Before computing similarity, we normalize the image and text vectors:
+
+
+image_proj = F.normalize(image_proj, dim=-1)
+text_proj = F.normalize(text_proj, dim=-1)
+similarity = image_proj @ text_proj.T  # shape: (B, B)
+
+
+cause what we care about is what direction the embedding vecotr is going in , not how long ,big it is
+
+Cosine similarity becomes a dot product after normalization.
+
+Helps stabilize training and avoid dominating effects of vector length.
+
+
+
