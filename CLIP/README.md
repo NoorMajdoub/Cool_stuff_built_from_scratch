@@ -93,3 +93,28 @@ dog image ↔ "a dog" → vectors point in the same direction
 cat image ↔ "a cat" → same
 
 dog image ↔ "a cat" → vectors point in different directions
+
+--
+ Training Flow
+ --
+Encode B images → image_embeddings → project to shared space
+
+Encode B texts → text_embeddings → project to shared space
+
+Normalize both sets of embeddings
+
+Compute similarity matrix S = image_proj @ text_proj.T → shape (B, B)
+
+Apply cross-entropy loss row-wise and column-wise:
+
+The correct image-text pair is on the diagonal of the matrix
+
+Off-diagonal = mismatches
+
+Each row is treated like a classification problem:
+
+"Which of these B text prompts matches this image?"
+
+And same for columns:
+
+"Which of these B images matches this text?"
