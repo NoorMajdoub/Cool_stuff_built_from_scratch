@@ -82,7 +82,9 @@ Helps stabilize training and avoid dominating effects of vector length.
 --
 what are we training here?
 --
-what will be changing during training is the projection matrices wi and wt those learn neeed to learn to project the image and text of same semantic meaning in the same direction that way during matrix representation they both be on the diagnoanl? The weights of the projection layers learn how to map features into a space where semantic relationships are reflected geometrically (through vector direction and distance).
+what will be changing during training is the projection matrices wi and wt those learn neeed to learn to project the image and text of same semantic meaning in the same direction 
+Because even though the image encoder and text encoder might be pretrained (e.g., ViT and BERT), their features aren’t aligned in any meaningful way across modalities.
+The weights of the projection layers learn how to map features into a space where semantic relationships are reflected geometrically (through vector direction and distance).
 
 The projection weights are trained (via InfoNCE loss) to rotate/scale/transform the original features in a way that:
 
