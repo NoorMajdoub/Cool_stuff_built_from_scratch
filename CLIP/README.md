@@ -79,5 +79,15 @@ Cosine similarity becomes a dot product after normalization.
 
 Helps stabilize training and avoid dominating effects of vector length.
 
+--
+what are we training here?
+--
+what will be changing during training is the projection matrices wi and wt those learn neeed to learn to project the image and text of same semantic meaning in the same direction that way during matrix representation they both be on the diagnoanl? The weights of the projection layers learn how to map features into a space where semantic relationships are reflected geometrically (through vector direction and distance).
 
+The projection weights are trained (via InfoNCE loss) to rotate/scale/transform the original features in a way that:
 
+dog image ↔ "a dog" → vectors point in the same direction
+
+cat image ↔ "a cat" → same
+
+dog image ↔ "a cat" → vectors point in different directions
