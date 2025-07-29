@@ -53,5 +53,11 @@ sim(q, k): similarity function (usually cosine similarity)
 
 τ: temperature scaling factor
 
-How is this implemented in the infoNce we use in CLIP
+How is this implemented in the infoNce we use in CLIP:
+similarity = image_proj @ text_proj.T  # shape: (B, B) : 2D array having each image in our batch and the sim score it gives with the texts 
+
+=| the True label is on the diagonal :The @ (dot product) is how we compute the similarity scores, which are fed into InfoNCE (via softmax + cross-entropy).
+loss_i2t = F.cross_entropy(similarity / temperature, labels)
+loss_t2i = F.cross_entropy(similarity.T / temperature, labels)
+loss = (loss_i2t + loss_t2i) / 2
 
