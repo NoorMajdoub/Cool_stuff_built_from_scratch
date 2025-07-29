@@ -118,3 +118,17 @@ Each row is treated like a classification problem:
 And same for columns:
 
 "Which of these B images matches this text?"
+
+--
+Why Cross Entropy?
+--
+Cross-entropy forces the model to rank the true match highest.
+
+It doesn’t just increase similarity blindly — it penalizes relative similarity:
+
+If the wrong text is more similar to the image than the correct one, the model is punished.
+
+This competitive nature improves robustness and generalization.
+
+This matrix is fed to a cross-entropy loss, treating each row and column as a classification problem where only the diagonal should have high sim.
+
